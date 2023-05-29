@@ -1,5 +1,5 @@
 local circles = {}
-local maxCircles = 50
+local maxCircles = 10
 
 local function createDirection()
 	local direction = math.random()
@@ -63,11 +63,11 @@ end
 
 function love.draw()
 	for _, circle in ipairs(circles) do
-		love.graphics.setColor(circle.color)
+		love.graphics.setColor(love.math.colorFromBytes(circle.color))
 		love.graphics.circle("fill", circle.x, circle.y, circle.radius, 200)
 	end
 
 	local x, y = love.mouse.getPosition()
-	love.graphics.setColor(100, 100, 100)
+	love.graphics.setColor(love.math.colorFromBytes(100, 100, 100))
 	love.graphics.circle("fill", x, y, 25, 200)
 end
